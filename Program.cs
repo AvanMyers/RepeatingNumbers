@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RepeatingNumbers
 {
@@ -21,7 +17,7 @@ namespace RepeatingNumbers
 
             int[] array = new int[arrayMass];
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 1; i < array.Length; i++)
             {
                 array[i] = random.Next(minRandom, maxRandom);
                 Console.Write(array[i] + " ");
@@ -31,7 +27,7 @@ namespace RepeatingNumbers
                     checkNumber = array[i];
                     checkRepeat++;
                 }
-                else if (array[i] != array[0] && array[i] != array[i - 1] && checkRepeat >= pinCheckRepeat)
+                else if (checkRepeat >= pinCheckRepeat)
                 {
                     pinRepeatNumber = checkNumber;
                     pinCheckRepeat = checkRepeat;
