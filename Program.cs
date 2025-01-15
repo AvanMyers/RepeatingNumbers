@@ -6,46 +6,46 @@ namespace RepeatingNumbers
     {
         static void Main(string[] args)
         {
-            int arrayMass = 30;
-            int checkNumber = 0;
-            int checkRepeat = 1;
-            int pinCheckRepeat = 1;
+            int size = 30;
+            int repitingNumber = 0;
+            int countOfRepit = 1;
+            int maxCountOfRepit = 1;
             int minRandom = 0;
             int maxRandom = 10;
             Random random = new Random();
 
-            int[] array = new int[arrayMass];
+            int[] numbers = new int[size];
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
-                array[i] = random.Next(minRandom, maxRandom);
+                numbers[i] = random.Next(minRandom, maxRandom);
             }
 
-            foreach (int number in array)
+            foreach (int number in numbers)
             {
                 Console.Write(number + " ");
             }
 
-            for (int i = 1; i < array.Length; i++)
+            for (int i = 1; i < numbers.Length; i++)
             {
-                if (array[i] == array[i - 1])
+                if (numbers[i] == numbers[i - 1])
                 {
-                    checkRepeat++;
+                    countOfRepit++;
 
-                    if (checkRepeat >= pinCheckRepeat)
+                    if (countOfRepit >= maxCountOfRepit)
                     {
-                        checkNumber = array[i];
-                        pinCheckRepeat = checkRepeat;
+                        repitingNumber = numbers[i];
+                        maxCountOfRepit = countOfRepit;
                     }
                 }
                 else
                 {
-                    checkRepeat = 1;
+                    countOfRepit = 1;
                 }
 
             }
 
-            Console.Write($" :число {checkNumber} повторяется {pinCheckRepeat} раза подряд");
+            Console.Write($" :число {repitingNumber} повторяется {maxCountOfRepit} раза подряд");
             Console.ReadKey();
         }
     }
